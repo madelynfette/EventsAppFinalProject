@@ -15,7 +15,7 @@ public class User {
     String name;
     String email;
     String password;
-    Boolean loggedIn;
+
 
     public User(String email, String password){
 

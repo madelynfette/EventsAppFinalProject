@@ -14,6 +14,7 @@ import java.util.Locale;
 
 public class HomeActivity extends AppCompatActivity {
     Button profileButton;
+    Button addEventButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,8 @@ public class HomeActivity extends AppCompatActivity {
         dateTextView.setText(formattedDate);
         profileButton = findViewById(R.id.profile_button);
         profileButton.setOnClickListener(profileListener);
+        addEventButton = findViewById(R.id.addEventButton);
+        addEventButton.setOnClickListener(addEventListener);
 
     }
 
@@ -40,6 +43,14 @@ public class HomeActivity extends AppCompatActivity {
         public void onClick(View v) {
             setContentView(R.layout.activity_profile);
             Intent intent = new Intent(HomeActivity.this, ProfileActivity.class);
+            startActivity(intent);
+        }
+    };
+    View.OnClickListener addEventListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            setContentView(R.layout.activity_add_event);
+            Intent intent = new Intent(HomeActivity.this, AddEventActivity.class);
             startActivity(intent);
         }
     };

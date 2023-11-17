@@ -83,4 +83,15 @@
         app:layout_constraintTop_toBottomOf="@+id/alleventsLV"
         app:srcCompat="@drawable/default_profile_account_unknown_icon_black_silhouette_free_vector" />
 
+    <Button
+        android:id="@+id/addEventButton"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="88dp"
+        android:text="Add Event"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/alleventsLV" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

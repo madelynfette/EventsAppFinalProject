@@ -9,6 +9,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class EventActivity extends AppCompatActivity {
     TextView date;
     TextView eventName;
@@ -18,6 +21,9 @@ public class EventActivity extends AppCompatActivity {
     Event event;
     Button addToMyEventsButton;
     Button returnHomeButton;
+    FirebaseDatabase database;
+    DatabaseReference reference;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

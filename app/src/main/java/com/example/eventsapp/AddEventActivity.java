@@ -38,16 +38,9 @@ public class AddEventActivity extends AppCompatActivity {
         addEventButton = findViewById(R.id.addEventButton2);
         homeButton.setOnClickListener(homeListener);
         addEventButton.setOnClickListener(addEventListener);
-        eName = findViewById(eNameET);
-        eLocation = findViewById(editTextEventLocation);
-        eDescription = findViewById(editTextEventDescription);
-        eDate = findViewById(editTextEventDate);
         db = FirebaseDatabase.getInstance();
         ref = db.getReference("event");
-        eventName = eName.getText().toString();
-        eventDate = eDate.getText().toString();
-        eventLocation = eLocation.getText().toString();
-        eventDescription = eDescription.getText().toString();
+
 
 
 

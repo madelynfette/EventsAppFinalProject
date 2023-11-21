@@ -53,16 +53,15 @@ public class LoginActivity extends AppCompatActivity {
             String email = emailInput.getText().toString().trim();
             String password = passwordInput.getText().toString().trim();
             User user = new User(email, password);
-            auth.signInWithEmailAndPassword(email,password);
-            //todo make this verify that the user is signed in
-            //if(user.loggedIn == true){
-                setContentView(R.layout.activityhome);
-                Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-                startActivity(intent);
-           // }
-            //else{
-           //     Toast.makeText(getApplicationContext(), "Your username or password is incorrect", Toast.LENGTH_SHORT).show();
-            //}*/
+            auth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    Toast.makeText(getApplicationContext(), "Signed in", Toast.LENGTH_SHORT).show();
+                    setContentView(R.layout.activityhome);
+                    Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                    startActivity(intent);
+                }
+            });
         }
     };
 

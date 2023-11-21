@@ -11,21 +11,25 @@
         style="@style/Widget.AppCompat.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="40dp"
         android:text="Add Event"
-        tools:layout_editor_absoluteX="22dp"
-        tools:layout_editor_absoluteY="425dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextEventDate" />
 
     <Button
         android:id="@+id/homebutton2"
         style="@style/Widget.AppCompat.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add Event"
-        tools:layout_editor_absoluteX="215dp"
-        tools:layout_editor_absoluteY="424dp" />
+        android:layout_marginStart="54dp"
+        android:layout_marginTop="39dp"
+        android:text="Return Home"
+        app:layout_constraintStart_toEndOf="@+id/addEventButton2"
+        app:layout_constraintTop_toBottomOf="@+id/editTextEventDate" />
 
     <EditText
-        android:id="@+id/eNameET"
+        android:id="@+id/eNameEditText"
         android:layout_width="379dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="11dp"
@@ -58,7 +62,7 @@
         android:hint="Event Location"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eNameET" />
+        app:layout_constraintTop_toBottomOf="@+id/eNameEditText" />
 
     <EditText
         android:id="@+id/editTextEventDescription"

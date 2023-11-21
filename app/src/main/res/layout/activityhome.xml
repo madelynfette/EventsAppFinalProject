@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#002170D1"
     android:padding="16dp">
 
     <TextView
@@ -70,19 +71,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewForYou2" />
 
-    <ImageButton
-        android:id="@+id/profile_button"
-        android:layout_width="56dp"
-        android:layout_height="66dp"
-        android:layout_marginStart="340dp"
-        android:layout_marginTop="72dp"
-        android:scaleType="fitCenter"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/alleventsLV"
-        app:srcCompat="@drawable/default_profile_account_unknown_icon_black_silhouette_free_vector" />
-
     <Button
         android:id="@+id/addEventButton"
         style="@style/Widget.AppCompat.Button"
@@ -92,6 +80,17 @@
         android:layout_marginTop="88dp"
         android:text="Add Event"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/alleventsLV" />
+
+    <Button
+        android:id="@+id/profile_button"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="122dp"
+        android:layout_marginTop="88dp"
+        android:text="👤"
+        app:layout_constraintStart_toEndOf="@+id/addEventButton"
         app:layout_constraintTop_toBottomOf="@+id/alleventsLV" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -34,7 +34,10 @@ public class Event {
         return description;
     }
 
-    //todo make a toString method to show what it will be returning on the listView
+    @Override
+    public String toString(){
+        return date + " " + name;
+    }
 
 
 }

@@ -39,10 +39,25 @@ public class SignUpActivity extends AppCompatActivity {
             String name = nameInput.getText().toString().trim();
             String email = emailInput.getText().toString().trim();
             String password = passwordInput.getText().toString();
+            Boolean valid = true;
+            if( email == null){
+                Toast.makeText(getApplicationContext(), "Please enter an email", Toast.LENGTH_SHORT).show();
+                valid = false;
+            }
+            if( password == null){
+                Toast.makeText(getApplicationContext(), "Please enter a password", Toast.LENGTH_SHORT).show();
+                valid = false;
+            }
+            if( name == null){
+                Toast.makeText(getApplicationContext(), "Please enter an email", Toast.LENGTH_SHORT).show();
+                valid = false;
+            }
+            if(valid == true){
+
 
             User user = new User(email, password);
             user.setName(name);
-            auth.createUserWithEmailAndPassword(email, password);
+            user.createUser();
             //todo verify that their account is created and they are logged in
 
             //if(user.loggedIn == true) {
@@ -51,7 +66,7 @@ public class SignUpActivity extends AppCompatActivity {
             //}else {
             //    Toast.makeText(getApplicationContext(), "We are having trouble loggin you in.",Toast.LENGTH_SHORT).show();
            // }
-        }
+        }}
     };
 
     //return to login screen

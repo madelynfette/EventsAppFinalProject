@@ -52,6 +52,16 @@ public class LoginActivity extends AppCompatActivity {
         public void onClick(View v) {
             String email = emailInput.getText().toString().trim();
             String password = passwordInput.getText().toString().trim();
+            Boolean valid = true;
+            if( email == null){
+                Toast.makeText(getApplicationContext(), "Please enter an email", Toast.LENGTH_SHORT).show();
+                valid = false;
+            }
+            if( password == null){
+                Toast.makeText(getApplicationContext(), "Please enter a password", Toast.LENGTH_SHORT).show();
+                valid = false;
+            }
+            if(valid){
             User user = new User(email, password);
             auth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
@@ -61,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
                     Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                     startActivity(intent);
                 }
-            });
+            });}
         }
     };
 

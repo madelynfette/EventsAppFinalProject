@@ -36,7 +36,6 @@ public class User {
     public void createUser(){
         //creates a user
         auth.createUserWithEmailAndPassword(email, password);
-        //todo make this verify that it was created like the one below
     }
 
 }

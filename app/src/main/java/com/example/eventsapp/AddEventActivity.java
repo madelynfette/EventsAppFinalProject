@@ -2,12 +2,14 @@ package com.example.eventsapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -26,6 +28,7 @@ public class AddEventActivity extends AppCompatActivity {
     String  eventDate;
     String eventLocation;
     String eventDescription;
+    FirebaseAuth auth;
 
 
 
@@ -38,8 +41,14 @@ public class AddEventActivity extends AppCompatActivity {
         addEventButton = findViewById(R.id.addEventButton2);
         homeButton.setOnClickListener(homeListener);
         addEventButton.setOnClickListener(addEventListener);
-        db = FirebaseDatabase.getInstance();
-        ref = db.getReference("event");
+        auth = FirebaseAuth.getInstance();
+        eName = findViewById(R.id.eNameEditText);
+        eDate = findViewById(R.id.editTextEventDate);
+        eLocation = findViewById(R.id.editTextEventLocation);
+        eDescription = findViewById(R.id.editTextEventDescription);
+
+
+
 
 
 
@@ -68,6 +77,26 @@ public class AddEventActivity extends AppCompatActivity {
             eLocation.setText("");
             eDate.setText("");
             eDescription.setText("");
+            ContentValues mNewValues = new ContentValues();
+            String userEmail = auth.getCurrentUser().getEmail();
+
+            mNewValues.put(EventContentProvider.FIRSTCOLUMN, eventName);
+            mNewValues.put(EventContentProvider.SECONDCOLUMN, eventDate);
+            mNewValues.put(EventContentProvider.THIRDCOLUMN, userEmail);
+            mNewValues.put(EventContentProvider.FOURTHCOLUMN, eventLocation);
+            mNewValues.put(EventContentProvider.FIFTHCOLUMN, eventDescription);
+
+
+            getContentResolver().insert(EventContentProvider.CONTENT_URI, mNewValues);
+
+            clear();
         }
     };
+
+    public void clear(){
+        eName.setText("");
+        eDate.setText("");
+        eLocation.setText("");
+        eDescription.setText("");
+    }
 }

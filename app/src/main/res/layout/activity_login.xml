@@ -9,6 +9,14 @@
     tools:context=".LoginActivity">
 
 
+    <TextView
+        android:id="@+id/passwordTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PASSWORD"
+        tools:layout_editor_absoluteX="-1dp"
+        tools:layout_editor_absoluteY="356dp" />
+
     <Button
         android:id="@+id/signup_button"
         style="@style/Widget.AppCompat.Button"
@@ -30,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:backgroundTint="#FFFFFF"
-        android:hint="Email"
+        android:hint="Please enter your student email"
         android:padding="12dp"
         android:textColor="#0B0A0A"
         app:layout_constraintEnd_toEndOf="parent"
@@ -43,7 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:backgroundTint="#FFFFFF"
-        android:hint="Password"
+        android:hint="Please enter a password"
         android:inputType="textPassword"
         android:padding="12dp"
         android:textColor="#121111"
@@ -92,6 +100,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/connect_u_logo"
         tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/passwordTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="273dp"
+        android:layout_marginBottom="1dp"
+        android:text="STUDENT EMAIL"
+        app:layout_constraintBottom_toTopOf="@+id/editTextUsername"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

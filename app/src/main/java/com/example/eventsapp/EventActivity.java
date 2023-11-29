@@ -42,8 +42,6 @@ public class EventActivity extends AppCompatActivity {
         eventName.setText(event.getName());
         //show date of event
         date.setText("Date: " + event.getDate());
-        //show owner of event
-        owner.setText("Posted By: "+ event.getOwner());
         //show location of event
         location.setText("Location: "+ event.getLocation());
         //show description of event

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -22,13 +23,12 @@ public class AddEventActivity extends AppCompatActivity {
     EditText eLocation;
     EditText eDate;
     EditText eDescription;
-    FirebaseDatabase db;
-    DatabaseReference ref;
     String eventName;
     String  eventDate;
     String eventLocation;
     String eventDescription;
     FirebaseAuth auth;
+    String email;
 
 
 
@@ -48,44 +48,53 @@ public class AddEventActivity extends AppCompatActivity {
         eDescription = findViewById(R.id.editTextEventDescription);
 
 
-
-
-
-
-
-
     }
 
     //returns user to the homepage
     View.OnClickListener homeListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            //set layout for home activity
             setContentView(R.layout.activityhome);
+            //start home activity
             Intent intent = new Intent(AddEventActivity.this, HomeActivity.class);
             startActivity(intent);
         }
     };
-    //adds event to a linkedList
+
     View.OnClickListener addEventListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            User user;
-            Event event = new Event(eventName, eventDate, eventLocation, eventDescription);
-            String key = ref.child(eventName).push().getKey();
-            ref.child(eventName).child(key).setValue(event);
-            eName.setText("");
-            eLocation.setText("");
-            eDate.setText("");
-            eDescription.setText("");
+            //get inputs
+
+            eventName = eName.getText().toString();
+            //check if null
+            if(eventName == null){
+                Toast.makeText(getApplicationContext(), "Please enter an event name", Toast.LENGTH_SHORT).show();
+            }
+            eventDate = eDate.getText().toString();
+            //check if null
+            if(eventDate == null){
+                Toast.makeText(getApplicationContext(), "Please enter an event date", Toast.LENGTH_SHORT).show();
+            }
+            eventDescription = eDescription.getText().toString();
+            //check if null
+            if(eventDescription == null){
+                Toast.makeText(getApplicationContext(), "Please enter an event description", Toast.LENGTH_SHORT).show();
+            }
+            eventLocation = eLocation.getText().toString();
+            //check if null
+            if(eventLocation == null){
+                Toast.makeText(getApplicationContext(), "Please enter an event location", Toast.LENGTH_SHORT).show();
+            }
+
+
             ContentValues mNewValues = new ContentValues();
-            String userEmail = auth.getCurrentUser().getEmail();
 
             mNewValues.put(EventContentProvider.FIRSTCOLUMN, eventName);
             mNewValues.put(EventContentProvider.SECONDCOLUMN, eventDate);
-            mNewValues.put(EventContentProvider.THIRDCOLUMN, userEmail);
-            mNewValues.put(EventContentProvider.FOURTHCOLUMN, eventLocation);
-            mNewValues.put(EventContentProvider.FIFTHCOLUMN, eventDescription);
-
+            mNewValues.put(EventContentProvider.THIRDCOLUMN, eventLocation);
+            mNewValues.put(EventContentProvider.FOURTHCOLUMN, eventDescription);
 
             getContentResolver().insert(EventContentProvider.CONTENT_URI, mNewValues);
 
@@ -93,6 +102,7 @@ public class AddEventActivity extends AppCompatActivity {
         }
     };
 
+    //clears all text inputs
     public void clear(){
         eName.setText("");
         eDate.setText("");

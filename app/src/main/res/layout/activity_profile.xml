@@ -7,28 +7,17 @@
     tools:context=".ProfileActivity">
 
     <TextView
-        android:id="@+id/nameTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="43dp"
-        android:layout_marginTop="37dp"
-        android:fontFamily="sans-serif-medium"
-        android:text="Name"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/emailTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="43dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="66dp"
+        android:layout_marginEnd="78dp"
         android:text="example@gmail.com"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameTV" />
+        app:layout_constraintEnd_toStartOf="@+id/returntohomebutton"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
+        android:id="@+id/listView"
         android:layout_width="399dp"
         android:layout_height="395dp"
         android:layout_marginStart="6dp"
@@ -53,9 +42,9 @@
         style="@style/Widget.AppCompat.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="59dp"
-        android:layout_marginTop="37dp"
+        android:layout_marginTop="49dp"
+        android:layout_marginEnd="40dp"
         android:text="Return Home"
-        app:layout_constraintStart_toEndOf="@+id/emailTV"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

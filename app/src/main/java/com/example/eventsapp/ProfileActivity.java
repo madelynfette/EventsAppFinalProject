@@ -14,19 +14,20 @@ public class ProfileActivity extends AppCompatActivity {
     Button returnHomeButton;
     TextView name_TV;
     TextView email_TV;
-    ListView myEventsLV;
-    User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //set layout for profile activity
         setContentView(R.layout.activity_profile);
-        //todo figure out why this isnt working
-        //returnHomeButton = findViewById(returntohomebutton);
-        name_TV = findViewById(R.id.nameTV);
+        returnHomeButton = findViewById(R.id.returntohomebutton);
+
         email_TV = findViewById(R.id.emailTV);
-        name_TV.setText(user.getName());
-        email_TV.setText(user.getEmail());
+        //receive email intent
+        Intent intent = getIntent();
+        String email = intent.getStringExtra("email");
+        email_TV.setText(email);
+
     }
     //todo load the list of my events in the listview, make options to delete them from the listview
 
@@ -35,7 +36,9 @@ public class ProfileActivity extends AppCompatActivity {
     View.OnClickListener homeListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            //sets layout of home activity
             setContentView(R.layout.activityhome);
+            //starts home activity
             Intent intent = new Intent(ProfileActivity.this, HomeActivity.class);
             startActivity(intent);
         }

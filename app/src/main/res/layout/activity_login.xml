@@ -4,18 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="@drawable/_74px_blue_gradient_svg"
     android:padding="16dp"
     tools:context=".LoginActivity">
 
 
     <TextView
-        android:id="@+id/passwordTV"
-        android:layout_width="wrap_content"
+        android:id="@+id/password_text"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="305dp"
         android:text="PASSWORD"
-        tools:layout_editor_absoluteX="-1dp"
-        tools:layout_editor_absoluteY="356dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextUsername" />
 
     <Button
         android:id="@+id/signup_button"
@@ -96,13 +99,14 @@
         android:scaleType="fitEnd"
         app:layout_constraintBottom_toTopOf="@+id/editTextUsername"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/connect_u_logo"
+        app:srcCompat="@drawable/screenshot_2023_11_30_at_1_22_57_pm_removebg_preview"
         tools:ignore="ContentDescription" />
 
     <TextView
-        android:id="@+id/passwordTV"
+        android:id="@+id/password_texts"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="273dp"

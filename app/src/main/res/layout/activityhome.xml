@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#002170D1"
+    android:background="@drawable/_74px_blue_gradient_svg"
     android:padding="16dp">
 
     <TextView
@@ -13,13 +13,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="420dp"
+        android:layout_marginBottom="372dp"
         android:fontFamily="sans-serif-light"
         android:text="All Events"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.531"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -38,14 +37,14 @@
 
     <TextView
         android:id="@+id/textViewDate"
-        android:layout_width="379dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:layout_marginEnd="16dp"
-        android:fontFamily="sans-serif-medium"
+        android:layout_width="203dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="56dp"
+        android:fontFamily="sans-serif-light"
         android:text="October 6th, 2015"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -66,7 +65,7 @@
         android:layout_width="375dp"
         android:layout_height="256dp"
         android:layout_marginStart="19dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -94,5 +93,18 @@
         android:text="👤"
         app:layout_constraintStart_toEndOf="@+id/addEventButton"
         app:layout_constraintTop_toBottomOf="@+id/alleventsLV" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="301dp"
+        android:layout_height="293dp"
+        android:layout_marginStart="-50dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="528dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/screenshot_2023_11_30_at_1_22_57_pm_removebg_preview" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

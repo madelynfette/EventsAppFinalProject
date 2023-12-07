@@ -16,14 +16,14 @@ import com.google.firebase.database.FirebaseDatabase;
 public class EventActivity extends AppCompatActivity {
     TextView date;
     TextView eventName;
-    TextView owner;
+    TextView eventDate;
+    TextView eventLocation;
+    TextView eventDescription;
     TextView location;
     TextView description;
     Event event;
     Button addToMyEventsButton;
     Button returnHomeButton;
-    FirebaseDatabase database;
-    DatabaseReference reference;
 
 
     @Override
@@ -31,22 +31,30 @@ public class EventActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event);
         date = findViewById(R.id.textViewDatePosted);
-        owner = findViewById(R.id.textViewEventOwner);
         location = findViewById(R.id.textViewLocation);
         description = findViewById(R.id.textViewDescription);
         addToMyEventsButton = findViewById(R.id.buttonAddToMyEvents);
         returnHomeButton = findViewById(R.id.buttonReturnHome);
         eventName = findViewById(R.id.nameTextView);
+        eventDate = findViewById(R.id.textViewDatePosted);
+        eventLocation = findViewById(R.id.textViewLocation);
+        eventDescription = findViewById(R.id.textViewDescription);
+
+
+        event = (Event) getIntent().getSerializableExtra("event");
+        String name = event.getName();
+        String date = event.getDate();
+        String location = event.getLocation();
+        String description = event.getDescription();
 
         //show name of event
-        eventName.setText(event.getName());
+        eventName.setText(name);
         //show date of event
-        date.setText("Date: " + event.getDate());
+        eventDate.setText(date);
         //show location of event
-        location.setText("Location: "+ event.getLocation());
+        eventLocation.setText(location);
         //show description of event
-        location.setText("Description: "+ event.getDescription());
-
+        eventDescription.setText(description);
 
     }
 //pressing button returns home
@@ -56,14 +64,6 @@ public class EventActivity extends AppCompatActivity {
             setContentView(R.layout.activityhome);
             Intent intent = new Intent(EventActivity.this, HomeActivity.class);
             startActivity(intent);
-        }
-    };
-    //pressing button adds event to myEvents
-    //todo: make this add to a myEvents list which is registered to the user
-    View.OnClickListener myEventsListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Toast.makeText(getApplicationContext(), eventName + " was added to MyEvents", Toast.LENGTH_SHORT ).show();
         }
     };
 

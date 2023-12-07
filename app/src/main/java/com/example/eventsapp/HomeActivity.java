@@ -1,11 +1,14 @@
 package com.example.eventsapp;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -25,14 +28,13 @@ public class HomeActivity extends AppCompatActivity {
     LinkedList alleventslist;
     ListView forYouLV;
     Cursor cursor;
-    LinkedList foryoulist;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activityhome);
         TextView dateTextView = findViewById(R.id.textViewDate);
-        //todo make listview of all events
         //todo make listview of for you events
 
 
@@ -42,9 +44,9 @@ public class HomeActivity extends AppCompatActivity {
 
         dateTextView.setText(formattedDate);
         profileButton = findViewById(R.id.profile_button);
-        profileButton.setOnClickListener(profileListener);
+//        profileButton.setOnClickListener(profileListener);
         addEventButton = findViewById(R.id.addEventButton);
-        addEventButton.setOnClickListener(addEventListener);
+  //      addEventButton.setOnClickListener(addEventListener);
         allEventsLV = findViewById(R.id.alleventsLV);
         forYouLV = findViewById(R.id.foryouLV);
         cursor = getContentResolver().query(
@@ -98,32 +100,54 @@ public class HomeActivity extends AppCompatActivity {
             adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, foryoulist);
             forYouLV.setAdapter(adapter2);
         }
-            adapter2.notifyDataSetChanged();
+        adapter2.notifyDataSetChanged();
 
-    }
+/*// Set an onItemClickListener for the listview.
+        allEventsLV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                // Get the position of the selected event.
+                position = allEventsLV.getPositionForView(view);
+
+                // Get the event object from the listview.
+                com.google.android.datatransport.Event event = (com.google.android.datatransport.Event) allEventsLV.getItemAtPosition(position);
+
+                // Create an Intent to open the EventActivity.
+                Intent intent = new Intent(HomeActivity.this, EventActivity.class);
+
+                // Add the event object to the Intent.
+                intent.putExtra("event", String.valueOf(event));
+
+                // Start the Intent.
+                startActivity(intent);
+            }
+        });
 
 
+    }*/
 
 
-    //brings the user to the profile activity
-    View.OnClickListener profileListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            //sets layout for profile activity
-            setContentView(R.layout.activity_profile);
-            //starts profile activity
-            Intent intent = new Intent(HomeActivity.this, ProfileActivity.class);
-            startActivity(intent);
-        }
-    };
-    View.OnClickListener addEventListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            //sets layout for addEventActivity
-            setContentView(R.layout.activity_add_event);
-            //Starts addEventActivity
-            Intent intent = new Intent(HomeActivity.this, AddEventActivity.class);
-            startActivity(intent);
-        }
-    };
-}
+        //brings the user to the profile activity
+        View.OnClickListener profileListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //sets layout for profile activity
+                setContentView(R.layout.activity_profile);
+                //starts profile activity
+                Intent intent = new Intent(HomeActivity.this, ProfileActivity.class);
+                startActivity(intent);
+            }
+        };
+        View.OnClickListener addEventListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //sets layout for addEventActivity
+                setContentView(R.layout.activity_add_event);
+                //Starts addEventActivity
+                Intent intent = new Intent(HomeActivity.this, AddEventActivity.class);
+                startActivity(intent);
+            }
+        };
+
+    }}

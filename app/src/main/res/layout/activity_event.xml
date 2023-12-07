@@ -31,24 +31,15 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textViewEventOwner"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:text="Posted By:"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewDatePosted" />
-
-    <TextView
         android:id="@+id/textViewLocation"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:padding="16dp"
         android:text="Location: Some Venue"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewEventOwner" />
+        tools:layout_editor_absoluteY="222dp" />
 
     <TextView
         android:id="@+id/textViewDescription"
@@ -89,10 +80,9 @@
         android:id="@+id/imageView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="-30dp"
-        app:layout_constraintBottom_toTopOf="@+id/textViewEventOwner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/screenshot_2023_11_30_at_1_22_57_pm_removebg_preview" />
+        app:srcCompat="@drawable/screenshot_2023_11_30_at_1_22_57_pm_removebg_preview"
+        tools:layout_editor_absoluteY="-99dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

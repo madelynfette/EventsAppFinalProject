@@ -22,7 +22,7 @@ public class EventActivity extends AppCompatActivity {
     TextView location;
     TextView description;
     Event event;
-    Button addToMyEventsButton;
+    Button getReturnHomeButtonL;
     Button returnHomeButton;
 
 
@@ -33,19 +33,21 @@ public class EventActivity extends AppCompatActivity {
         date = findViewById(R.id.textViewDatePosted);
         location = findViewById(R.id.textViewLocation);
         description = findViewById(R.id.textViewDescription);
-        addToMyEventsButton = findViewById(R.id.buttonAddToMyEvents);
         returnHomeButton = findViewById(R.id.buttonReturnHome);
         eventName = findViewById(R.id.nameTextView);
         eventDate = findViewById(R.id.textViewDatePosted);
         eventLocation = findViewById(R.id.textViewLocation);
         eventDescription = findViewById(R.id.textViewDescription);
+        returnHomeButton = findViewById(R.id.buttonReturnHome);
+        returnHomeButton.setOnClickListener(homeListener);
 
 
-        event = (Event) getIntent().getSerializableExtra("event");
-        String name = event.getName();
-        String date = event.getDate();
-        String location = event.getLocation();
-        String description = event.getDescription();
+
+        //eventName = (Event) ;
+        String name = getIntent().getStringExtra("eventName");
+        String date = getIntent().getStringExtra("eventDate");
+        String location = getIntent().getStringExtra("eventLocation");
+        String description = getIntent().getStringExtra("eventDescription");
 
         //show name of event
         eventName.setText(name);

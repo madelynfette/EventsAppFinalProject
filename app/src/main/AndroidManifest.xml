@@ -13,11 +13,6 @@
         android:theme="@style/Theme.EventsApp"
         tools:targetApi="31">
         <provider
-            android:name=".UserSavedEventsContentProvider"
-            android:authorities="eventsapp.com"
-            android:enabled="true"
-            android:exported="true"></provider>
-        <provider
             android:name=".EventContentProvider"
             android:authorities="eventsapp.com"
             android:enabled="true"
@@ -36,9 +31,6 @@
             android:name=".HomeActivity"
             android:exported="false"
             android:label="@string/title_activity_home" />
-        <activity
-            android:name=".SignUpActivity"
-            android:exported="false" />
         <activity
             android:name=".LoginActivity"
             android:exported="true">

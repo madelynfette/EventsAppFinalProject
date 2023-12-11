@@ -23,7 +23,8 @@ public class EventContentProvider extends ContentProvider {
         @Override
         public void onUpgrade(SQLiteDatabase arg0, int arg1, int arg2) {
         }
-    };
+    }
+
     public final static String TABLE_NAMESTABLE = "Events";
     public final static String FIRSTCOLUMN = "name";
     public final static String SECONDCOLUMN = "date";

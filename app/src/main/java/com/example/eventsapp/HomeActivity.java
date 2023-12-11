@@ -22,11 +22,9 @@ import java.util.List;
 import java.util.Locale;
 
 public class HomeActivity extends AppCompatActivity {
-    Button profileButton;
     Button addEventButton;
     ListView allEventsLV;
     LinkedList alleventslist;
-    ListView forYouLV;
     Cursor cursor;
 
 
@@ -35,7 +33,6 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activityhome);
         TextView dateTextView = findViewById(R.id.textViewDate);
-        //todo make listview of for you events
 
 
         //set date
@@ -43,12 +40,9 @@ public class HomeActivity extends AppCompatActivity {
         String formattedDate = sdf.format(new Date());
 
         dateTextView.setText(formattedDate);
-        profileButton = findViewById(R.id.profile_button);
-//        profileButton.setOnClickListener(profileListener);
         addEventButton = findViewById(R.id.addEventButton);
-  //      addEventButton.setOnClickListener(addEventListener);
+        addEventButton.setOnClickListener(addEventListener);
         allEventsLV = findViewById(R.id.alleventsLV);
-        forYouLV = findViewById(R.id.foryouLV);
         cursor = getContentResolver().query(
                 EventContentProvider.CONTENT_URI,
                 null,
@@ -79,66 +73,36 @@ public class HomeActivity extends AppCompatActivity {
         }
         adapter.notifyDataSetChanged();
 
-        //add events to forYouListView
-        LinkedList<Event> foryoulist = new LinkedList<>();
-        ArrayAdapter<Event> adapter2 = null;
-        if (cursor != null && !cursor.isClosed()) {
-            cursor.moveToPosition(8);
-            if (cursor.getCount() > 0) {
-                while (cursor.getPosition() < 3) {
-                    String eventName = cursor.getString(1);
-                    String eventDate = cursor.getString(2);
-                    String eventLocation = cursor.getString(3);
-                    String eventDescription = cursor.getString(4);
-                    Event event = new Event(eventName, eventDate, eventLocation, eventDescription);
-                    foryoulist.add(event);
 
-                    cursor.moveToNext();
-                }
-            }
-
-            adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, foryoulist);
-            forYouLV.setAdapter(adapter2);
-        }
-        adapter2.notifyDataSetChanged();
-
-/*// Set an onItemClickListener for the listview.
+// Set an onItemClickListener for the listview.
         allEventsLV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                // Get the position of the selected event.
-                position = allEventsLV.getPositionForView(view);
+                Event event = (Event) parent.getItemAtPosition(position);
+                String evName = event.getName();
+                String evDate = event.getDate();
+                String evLocation = event.getLocation();
+                String evDescription = event.getDescription();
 
-                // Get the event object from the listview.
-                com.google.android.datatransport.Event event = (com.google.android.datatransport.Event) allEventsLV.getItemAtPosition(position);
 
                 // Create an Intent to open the EventActivity.
                 Intent intent = new Intent(HomeActivity.this, EventActivity.class);
-
                 // Add the event object to the Intent.
-                intent.putExtra("event", String.valueOf(event));
+                intent.putExtra("eventName", evName);
+                intent.putExtra("eventDate", evDate);
+                intent.putExtra("eventLocation", evLocation);
+                intent.putExtra("eventDescription", evDescription);
 
                 // Start the Intent.
                 startActivity(intent);
             }
         });
 
+    }
 
-    }*/
 
 
-        //brings the user to the profile activity
-        View.OnClickListener profileListener = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //sets layout for profile activity
-                setContentView(R.layout.activity_profile);
-                //starts profile activity
-                Intent intent = new Intent(HomeActivity.this, ProfileActivity.class);
-                startActivity(intent);
-            }
-        };
         View.OnClickListener addEventListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -150,4 +114,4 @@ public class HomeActivity extends AppCompatActivity {
             }
         };
 
-    }}
+    }

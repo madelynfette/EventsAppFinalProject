@@ -70,12 +70,6 @@ public class LoginActivity extends AppCompatActivity {
                         Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                         startActivity(intent);
 
-                        //sends the email to the addevent activity
-                        Intent intentAddEvent = new Intent(LoginActivity.this, AddEventActivity.class);
-                        intentAddEvent.putExtra("email", email);
-                        //sends the email to the profile activity
-                        Intent intentProfile = new Intent(LoginActivity.this, ProfileActivity.class);
-                        intentProfile.putExtra("email", email);
 
                     }
                 });
@@ -114,12 +108,7 @@ public class LoginActivity extends AppCompatActivity {
                     //starts the home activity
                     Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                     startActivity(intent);
-                    //sends the email to the addEventActivity
-                    Intent intentAddEvent = new Intent(LoginActivity.this, AddEventActivity.class);
-                    intentAddEvent.putExtra("email", email);
-                    //sends email to profileActivity
-                    Intent intentProfile = new Intent( LoginActivity.this, ProfileActivity.class);
-                    intentProfile.putExtra("email", email);
+
 
 
                 }

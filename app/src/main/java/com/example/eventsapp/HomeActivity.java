@@ -101,8 +101,7 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
-
-
+        //Takes user to add events activity
         View.OnClickListener addEventListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -101,18 +101,17 @@ public class LoginActivity extends AppCompatActivity {
                 auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                    //alerts the user that they have successfully signed in
-                    Toast.makeText(getApplicationContext(), "Signed in", Toast.LENGTH_SHORT).show();
-                    //sets the home layout
-                    setContentView(R.layout.activityhome);
-                    //starts the home activity
-                    Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-                    startActivity(intent);
+                        //alerts the user that they have successfully signed in
+                        Toast.makeText(getApplicationContext(), "Signed in", Toast.LENGTH_SHORT).show();
+                        //sets the home layout
+                        setContentView(R.layout.activityhome);
+                        //starts the home activity
+                        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                        startActivity(intent);
 
-
-
-                }
-            });}
+                    }
+                });
+            }
         }
     };
 

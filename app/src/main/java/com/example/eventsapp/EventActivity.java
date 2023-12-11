@@ -21,8 +21,6 @@ public class EventActivity extends AppCompatActivity {
     TextView eventDescription;
     TextView location;
     TextView description;
-    Event event;
-    Button getReturnHomeButtonL;
     Button returnHomeButton;
 
 

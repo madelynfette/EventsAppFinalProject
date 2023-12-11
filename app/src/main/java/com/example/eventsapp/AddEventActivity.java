@@ -28,9 +28,6 @@ public class AddEventActivity extends AppCompatActivity {
     String eventLocation;
     String eventDescription;
     FirebaseAuth auth;
-    String email;
-
-
 
 
     @Override
@@ -62,11 +59,11 @@ public class AddEventActivity extends AppCompatActivity {
         }
     };
 
+
     View.OnClickListener addEventListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             //get inputs
-
             eventName = eName.getText().toString();
             //check if null
             if(eventName == null){
@@ -87,8 +84,7 @@ public class AddEventActivity extends AppCompatActivity {
             if(eventLocation == null){
                 Toast.makeText(getApplicationContext(), "Please enter an event location", Toast.LENGTH_SHORT).show();
             }
-
-
+            //Store values in db
             ContentValues mNewValues = new ContentValues();
 
             mNewValues.put(EventContentProvider.FIRSTCOLUMN, eventName);

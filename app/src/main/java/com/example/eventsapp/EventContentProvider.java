@@ -24,7 +24,7 @@ public class EventContentProvider extends ContentProvider {
         public void onUpgrade(SQLiteDatabase arg0, int arg1, int arg2) {
         }
     }
-
+    //Create SQL database
     public final static String TABLE_NAMESTABLE = "Events";
     public final static String FIRSTCOLUMN = "name";
     public final static String SECONDCOLUMN = "date";
@@ -36,6 +36,7 @@ public class EventContentProvider extends ContentProvider {
 
     public MainDatabaseHelper mOpenHelper;
 
+    //Create table
     public static final String SQL_CREATE_MAIN = "CREATE TABLE " +
             TABLE_NAMESTABLE +
             "(" +

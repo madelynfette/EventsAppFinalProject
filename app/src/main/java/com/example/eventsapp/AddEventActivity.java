@@ -27,7 +27,6 @@ public class AddEventActivity extends AppCompatActivity {
     String  eventDate;
     String eventLocation;
     String eventDescription;
-    FirebaseAuth auth;
 
 
     @Override
@@ -38,7 +37,6 @@ public class AddEventActivity extends AppCompatActivity {
         addEventButton = findViewById(R.id.addEventButton2);
         homeButton.setOnClickListener(homeListener);
         addEventButton.setOnClickListener(addEventListener);
-        auth = FirebaseAuth.getInstance();
         eName = findViewById(R.id.eNameEditText);
         eDate = findViewById(R.id.editTextEventDate);
         eLocation = findViewById(R.id.editTextEventLocation);

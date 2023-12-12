@@ -30,11 +30,23 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextEventDate" />
 
     <EditText
+        android:id="@+id/editTextEventDescription"
+        android:layout_width="379dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="2dp"
+        android:hint="Event Description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextEventLocation" />
+
+    <EditText
         android:id="@+id/eNameEditText"
         android:layout_width="379dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="11dp"
-        android:layout_marginTop="146dp"
+        android:layout_marginTop="240dp"
         android:layout_marginEnd="5dp"
         android:hint="Event Name"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,10 +58,10 @@
         android:layout_width="379dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="11dp"
-        android:layout_marginTop="340dp"
+        android:layout_marginTop="432dp"
         android:hint="Event Date &quot;MM/DD/YY&quot;"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.238"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -58,31 +70,19 @@
         android:layout_width="379dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="14dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="2dp"
         android:hint="Event Location"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/eNameEditText" />
 
-    <EditText
-        android:id="@+id/editTextEventDescription"
-        android:layout_width="379dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="2dp"
-        android:hint="Event Description"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextEventLocation" />
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="116dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="208dp"
         android:fontFamily="sans-serif-light"
         android:text="Add an event below to share with other students"
         android:textColor="#070707"
@@ -95,11 +95,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="14dp"
+        android:layout_marginTop="-100dp"
         android:layout_marginEnd="2dp"
         android:layout_marginBottom="456dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/screenshot_2023_11_30_at_1_22_57_pm_removebg_preview" />
 
     <!-- Add more UI components and constraints as needed -->
